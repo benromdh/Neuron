@@ -7,8 +7,6 @@
 //#include "constantes.cc"
 using namespace std;
 
-void rien(){}s
-
 int main()
 {
 	Neurone n1;
