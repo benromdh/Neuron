@@ -1,36 +1,27 @@
 #ifndef NETWORK_H
 #define NETWORK_H
-#include "neurones.hpp"
+#include "Neuron.hpp"
+#include <array>
 #include <iostream>
-#include <vector>
-
-using namespace std;
+#include <random>
+#include <map>
 
 class Network
 
 {
 	
 	private :
-		
-		Neurone n1;
-		Neurone n2;
+		std::array<std::array<int, 12500>, 12500> Connexions;
+		std::vector<Neurone*> Neurones ;
 
 	public :
-	
+		Network();
 		void interaction();
-		 
-		
-	
-	
-	
-	
-	
-	
-	
+
 	
 };
 
-
+int uniform(int a,int b);
 
 
 

@@ -1,25 +1,21 @@
-#include <iostream>
 #include <fstream>
 #include <string>
-#include <vector>
-#include "Network.cpp"
-#include "neurones.cpp"
+#include "Network.hpp"
 //#include "constantes.cc"
 using namespace std;
 
 int main()
 {
-	Neurone n1;
-	double start = 0.0;
+	/*Neurone n1;
+	double start = 0.0; //Temps max/min de la simulation
 	double stop = 1000;
-	int clock = 0.0;				
+	int clock;			//temps global			
 	double I1;
 	double I2;
-	double t_start;
+	double t_start;		//intervalle de temps choisi
 	double t_stop;
-	//double J = 0.1;
-	double d = 0.1;
-	int n;            //pas de temps
+	double d = 0.1;		//delay du neurone
+	int n;            	//pas de temps
 
 	string const valeurs_pot("valeurs.txt");
 	ofstream sortie(valeurs_pot.c_str());
@@ -32,23 +28,25 @@ int main()
 	cin >> I1;
 	cout << "Please insert an external current for n2 : ";
 	cin >> I2;
-	n = (t_stop - t_start)/h;
+	n = (t_stop - t_start)/h; //conversion en pas de temps
 	
  
-
-	if (t_start >= start and t_stop <= stop)
-	{
 	
-		while (clock < n)
-		{
-			n1.update(clock,I1);
+	while (clock < stop/h)
+	{
+		if(clock > t_start/h and clock < t_stop/h)
+		{n1.update(clock,I1);}
+		
+		else 
+		{n1.update(clock,0);}
+		
 			if(sortie)
-			sortie << clock * h << "     " << "n1 : " << n1.get_potential() << endl;
+			sortie << clock * h << "  " << "n1 : " << n1.get_potential() << endl;
 			else
 			cout << "Erreur";
 			
 			++clock;
-		}
+	}
 			
 	sortie.close();
 	
@@ -57,10 +55,11 @@ int main()
 	
 	}
 	
-	
-	/* Network simulation;
-	simulation.interaction();
 	*/
+	
+	Network simulation;
+	simulation.interaction();
+	
 	return 0; 
 	
 	

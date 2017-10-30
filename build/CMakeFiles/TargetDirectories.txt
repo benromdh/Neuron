@@ -1,0 +1,6 @@
+/home/INTRANET/benromdh/Desktop/myfiles/prog17-18/Neuron/build/CMakeFiles/Neuron.dir
+/home/INTRANET/benromdh/Desktop/myfiles/prog17-18/Neuron/build/gtest/googlemock/gtest/CMakeFiles/gtest.dir
+/home/INTRANET/benromdh/Desktop/myfiles/prog17-18/Neuron/build/gtest/googlemock/CMakeFiles/gmock.dir
+/home/INTRANET/benromdh/Desktop/myfiles/prog17-18/Neuron/build/gtest/googlemock/gtest/CMakeFiles/gtest_main.dir
+/home/INTRANET/benromdh/Desktop/myfiles/prog17-18/Neuron/build/CMakeFiles/Neuron_unittest.dir
+/home/INTRANET/benromdh/Desktop/myfiles/prog17-18/Neuron/build/gtest/googlemock/CMakeFiles/gmock_main.dir
