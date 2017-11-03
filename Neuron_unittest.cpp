@@ -2,7 +2,7 @@
 #include <gtest/gtest.h>
 
 
-TEST(NeuronTest, PositiveInput)
+/*TEST(NeuronTest, PositiveInput)
 { 
 	Neurone n(0.0);
 	
@@ -13,3 +13,4 @@ TEST(NeuronTest, PositiveInput)
   int main(){
 	  return 0;
 	  }
+*/

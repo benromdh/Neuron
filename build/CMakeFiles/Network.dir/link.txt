@@ -1,1 +1,0 @@
-/usr/bin/c++   -W -Wall -pedantic -std=c++11   CMakeFiles/Network.dir/Network.cpp.o  -o Network -rdynamic 

@@ -11,28 +11,18 @@ class Network
 {
 	
 	private :
-		std::array<std::array<int, 12500>, 12500> Connexions;
-		std::vector<Neurone*> Neurones ;
+		std::vector<Neurone*> Neurones;
+		/*int clock;				
+		double t_stop;
+		double h;*/
 
 	public :
 		Network();
 		void interaction();
+		~Network();
 
 	
 };
-
-int uniform(int a,int b);
-
-
-
-
-
-
-
-
-
-
-
 
 
 #endif

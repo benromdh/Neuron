@@ -3,6 +3,10 @@
 
 using namespace std;
 
+Neurone :: Neurone(double j)
+:spikes(0), buffer(vector<int>(d+1)), J(j)			/*! on set la taille du buffer à d+1 (en pas de temps) afin d'avoir un tableau circulaire */
+{}
+
 int random_poisson(int a)
 {
 	static random_device rd;
@@ -11,48 +15,46 @@ int random_poisson(int a)
 	return dis(gen);
 }
 
-bool Neurone :: update(int t,double I)
+bool Neurone :: update(int t)
 {	
-
-		if (!spk_time.empty() and ((t*h)-spk_time.back()) < r_per)
+		bool spiked = false;
+		//cout << "j'ai updaté n"<< endl;						
+		if (!spk_time.empty() and ((t*h)-spk_time.back()) < r_per)	/*! valeur recu du neurone et qui doit etre ajoutée à V au temps t+d */
 		{
 			V = 0;
-			return false;
 		}
 		
 		else
 		{
-		J = buffer[t % ((int)(d/h) + 1)]; 
-		buffer[t % ((int)(d/h) + 1)] = 0;
-		V = exp(-h/tau)*V + I*R*(1-exp(-h/tau)) + J + random_poisson(V_ext*C_ext)*h*0.1;
-			
+			int j = buffer[t % (d+1)];
+					   	  		  
+			V = exp(-h/tau)*V + j + random_poisson(V_ext);   
+		
 			if(V > V_thr) 
 			{
-			++spikes;
-			spk_time.push_back(t * h);
-			V = 0;
+				++spikes;
+				spk_time.push_back(t*h);
+				V = 0;
 			
-			return true;
+				spiked = true;
 			}
 			
-			else { return false; }		
+				
 		}
+		
+		buffer[t % (d+1)] = 0;	
+		return spiked;
 		
 }
 
 void Neurone::receive(int t, double J_voisin)
 {
-	buffer[t+(int)(d/h)% (int)(d/h+1)] += J_voisin;
+	buffer[(t+d) % (d+1)] += J_voisin;
 }
 
-vector<double> Neurone :: get_tab()	
+vector<double> Neurone :: get_spk_time()	
 {
 	return spk_time;
-}
-
-double Neurone :: get_potential()
-{
-	return V;
 }
 
 double Neurone :: get_V()
@@ -65,6 +67,8 @@ double Neurone :: get_J()
 	return J;
 }
 
-Neurone :: Neurone(double j)
-:spikes(0), buffer(vector<int>((d/h)+1)), J(j)
-{}
+vector<int> Neurone :: get_targets()
+{
+	return targets;
+}
+

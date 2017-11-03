@@ -1,0 +1,62 @@
+\hypertarget{classNeurone}{\section{Neurone Class Reference}
+\label{classNeurone}\index{Neurone@{Neurone}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classNeurone_a3eab5c3fa0164913da16e1e354849ea7}{Neurone} (double j)
+\item 
+bool \hyperlink{classNeurone_a91f96fb64597e912121a9b2c5073a48b}{update} (int t)
+\item 
+\hypertarget{classNeurone_ab49a574132de33bba33faf645957d53c}{std\-::vector$<$ double $>$ {\bfseries get\-\_\-spk\-\_\-time} ()}\label{classNeurone_ab49a574132de33bba33faf645957d53c}
+
+\item 
+\hypertarget{classNeurone_a119a9b1cd5a1bae9bac565e3d61cbadb}{double {\bfseries get\-\_\-potential} ()}\label{classNeurone_a119a9b1cd5a1bae9bac565e3d61cbadb}
+
+\item 
+\hypertarget{classNeurone_a261fa4e7a44a4b4b3d1ec619189614cd}{void {\bfseries receive} (int t, double J\-\_\-voisin)}\label{classNeurone_a261fa4e7a44a4b4b3d1ec619189614cd}
+
+\item 
+double \hyperlink{classNeurone_a4d6cfa1a764a9fae24f54bd327503669}{get\-\_\-\-V} ()
+\item 
+\hypertarget{classNeurone_a0571ccbb1a1f26ffcb6bf50091520544}{double {\bfseries get\-\_\-\-J} ()}\label{classNeurone_a0571ccbb1a1f26ffcb6bf50091520544}
+
+\item 
+\hypertarget{classNeurone_af4096808a1819a5dc01be850a89d0aae}{std\-::vector$<$ int $>$ {\bfseries get\-\_\-targets} ()}\label{classNeurone_af4096808a1819a5dc01be850a89d0aae}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classNeurone_a3eab5c3fa0164913da16e1e354849ea7}{\index{Neurone@{Neurone}!Neurone@{Neurone}}
+\index{Neurone@{Neurone}!Neurone@{Neurone}}
+\subsubsection[{Neurone}]{\setlength{\rightskip}{0pt plus 5cm}Neurone\-::\-Neurone (
+\begin{DoxyParamCaption}
+\item[{double}]{j}
+\end{DoxyParamCaption}
+)}}\label{classNeurone_a3eab5c3fa0164913da16e1e354849ea7}
+le rate de reception du background noise
+
+on set la taille du buffer à d+1 (en pas de temps) afin d'avoir un tableau circulaire 
+
+\subsection{Member Function Documentation}
+\hypertarget{classNeurone_a4d6cfa1a764a9fae24f54bd327503669}{\index{Neurone@{Neurone}!get\-\_\-\-V@{get\-\_\-\-V}}
+\index{get\-\_\-\-V@{get\-\_\-\-V}!Neurone@{Neurone}}
+\subsubsection[{get\-\_\-\-V}]{\setlength{\rightskip}{0pt plus 5cm}double Neurone\-::get\-\_\-\-V (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classNeurone_a4d6cfa1a764a9fae24f54bd327503669}
+gere l'affectation de J au neurone concerné \hypertarget{classNeurone_a91f96fb64597e912121a9b2c5073a48b}{\index{Neurone@{Neurone}!update@{update}}
+\index{update@{update}!Neurone@{Neurone}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}bool Neurone\-::update (
+\begin{DoxyParamCaption}
+\item[{int}]{t}
+\end{DoxyParamCaption}
+)}}\label{classNeurone_a91f96fb64597e912121a9b2c5073a48b}
+valeur recu du neurone et qui doit etre ajoutée à V au temps t+d 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Neuron.\-hpp\item 
+Neuron.\-cpp\end{DoxyCompactItemize}

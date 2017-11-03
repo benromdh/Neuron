@@ -9,31 +9,35 @@ class Neurone
 {
 	private :
 		
-		int spikes;
-		std::vector<double> spk_time;
-		double d = 1.5;
-		const double h = 0.1; 
-		std::vector<int> buffer;
-		double V;
-		const double V_thr = 20; //potential limit
-		const double tau = 20; 
-		const int C = 1;
-		const double r_per = 0.5; //refractory period
-		const double R = tau/C;
-		const double C_ext = 1000; //connexions ext = connexions exitatrices 
-		const double V_ext = 2; //pour h = 0.1
-		double J;
+		double V;					  /*! potentiel de membrane */
+		int spikes;					  /*! tableau qui repertorie le nombre total de spikes du neurone */
+		std::vector<double> spk_time; /*! tableau qui stocke le temps de spike pour chaque Neurone */
+		std::vector<int> targets;	 
+		std::vector<int> buffer;	  /*! buffer pour gerer la reception du spike J au temps t + d*/
+		double J;					  /*! parametre J qui définit la nature du neurone */
+		
+		int d = 15;				  /*! delai (pas de temps) de reception du spike J */
+		static constexpr double h = 0.1;		  /*! unité de temps*/
+		static constexpr double V_thr = 20;      /*! le V threshold */
+		static constexpr double tau = 20; 		  /*! Constantes */
+		static constexpr int C = 1;
+		static constexpr double r_per = 2;       /*! refractory period (ms)*/
+		static constexpr double R = tau/C;
+		static constexpr double C_ext = 1000; 	    /*! connexions ext = connexions exitatrices */
+		static constexpr double V_ext = 2; 	  		/*! le rate de reception du background noise */
+
 		
 				
 	public :
 	
 		Neurone(double j);
-		bool update(int t,double I = 1.01);
-		std::vector<double> get_tab();
+		bool update(int t);
+		std::vector<double> get_spk_time();		
 		double get_potential();
-		void receive(int t, double J_voisin);
+		void receive(int t, double J_voisin); /*! gere l'affectation de J au neurone concerné */
 		double get_V();
 		double get_J();
+		std::vector<int> get_targets();
 
 };
 
