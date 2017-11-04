@@ -15,15 +15,15 @@ int uniform(int a,int b)
 
 Network :: Network()
 {
-	cout << "je suis dans network"<<endl;	
 	for(size_t i(0); i < 10000; ++i)
-	{	cout << i << endl;
+	{	
+		//Neurone* N = new Neurone(0.1); 
 		Neurones.push_back(new Neurone(0.1));
 	}
-    cout << "je suis dans network2 "<<endl;
+
     for(size_t i(0); i < 2500; ++i)
     {	
-		Neurones.push_back(new Neurone(-0.5));
+		Neurones.push_back(new Neurone(-0.3));
 	}
 	
 	for(size_t n(0); n < Neurones.size(); ++n)
@@ -42,24 +42,21 @@ Network :: Network()
 
 void Network :: interaction()
 {
-	cout << "je suis dans interaction";
 	int clock = 0;
-	int t_stop = 500;
+	int t_stop = 10000;
 	double h = 0.1;
 	string const valeurs_pot("valeurs.txt");
 	ofstream sortie(valeurs_pot.c_str());
-
- 
+	
+	
 	while (clock < t_stop)
 	{
-		cout << "je suis dans la boucle"<< endl;
 		for(size_t i(0); i < Neurones.size(); ++i)
 		{	
 			bool spike = Neurones[i]->update(clock); 
 			if(spike)
-			sortie << clock*h << "	";
-			sortie << i+1 << endl;
-			{
+			{	sortie << clock*h << "	";
+				sortie << i+1 << endl;
 				for(size_t j(0); j < Neurones[i] -> get_targets().size(); ++j) 		
 				{
 					

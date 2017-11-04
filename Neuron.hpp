@@ -9,14 +9,14 @@ class Neurone
 {
 	private :
 		
-		double V;					  /*! potentiel de membrane */
+		double V;	
+		static constexpr int d = 15;				  /*! potentiel de membrane */
 		int spikes;					  /*! tableau qui repertorie le nombre total de spikes du neurone */
 		std::vector<double> spk_time; /*! tableau qui stocke le temps de spike pour chaque Neurone */
 		std::vector<int> targets;	 
-		std::vector<int> buffer;	  /*! buffer pour gerer la reception du spike J au temps t + d*/
+		std::vector<double> buffer;	  /*! buffer pour gerer la reception du spike J au temps t + d*/
 		double J;					  /*! parametre J qui définit la nature du neurone */
-		
-		int d = 15;				  /*! delai (pas de temps) de reception du spike J */
+										
 		static constexpr double h = 0.1;		  /*! unité de temps*/
 		static constexpr double V_thr = 20;      /*! le V threshold */
 		static constexpr double tau = 20; 		  /*! Constantes */
