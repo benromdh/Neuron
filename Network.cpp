@@ -7,7 +7,7 @@ using namespace std;
 
 int uniform(int a,int b)
 {
-	static random_device rd;
+	static random_device rd; 
 	static mt19937 gen(rd());
 	static uniform_int_distribution<> dis(a,b);
 	return dis(gen);
