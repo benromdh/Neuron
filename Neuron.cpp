@@ -7,41 +7,30 @@ Neurone :: Neurone(double j)
 :spikes(0),buffer(d+1, 0),J(j)		/*! on set la taille du buffer à d+1 (en pas de temps) afin d'avoir un tableau circulaire */
 {}
 
-int random_poisson(int a)
-	{
-	static random_device rd;
-	static mt19937 gen(rd());
-	static poisson_distribution<> dis(a);
-	return dis(gen);
-	}
-
-bool Neurone :: update(int t)
+	
+bool Neurone :: update(int t,int p)
 {	
+
+	bool spiked = false;					
+	if (!spk_time.empty() and ((t*h)-spk_time.back()) < r_per)	/*! valeur recu du neurone et qui doit etre ajoutée à V au temps t+d */
+	{
+		V = 0.0;
+	}
 		
-		bool spiked = false;
-		//cout << "j'ai updaté n"<< endl;						
-		if (!spk_time.empty() and ((t*h)-spk_time.back()) < r_per)	/*! valeur recu du neurone et qui doit etre ajoutée à V au temps t+d */
+	else
+	{
+		V = exp(-h/tau)*V + buffer[t % (d+1)]+ p*J_ext; //random_poisson(V_ext*h)*0.1;		
+		
+		if(V > V_thr) 
 		{
-			V = 0;
-		}
-		
-		else
-		{
-			int j = buffer[t % (d+1)];
-					   	  		  
-			V = exp(-h/tau)*V + j + random_poisson(V_ext)*0.1;   
-		
-			if(V > V_thr) 
-			{
-				++spikes;
-				spk_time.push_back(t*h);
-				V = 0;
+			++spikes;
+			spk_time.push_back(t*h);
+			V = 0.0;
 			
-				spiked = true;
-			}
-			
-				
+			spiked = true;
 		}
+	
+	}
 		
 		buffer[t % (d+1)] = 0;	
 		return spiked;
@@ -73,3 +62,12 @@ vector<int> Neurone :: get_targets()
 	return targets;
 }
 
+vector<double> Neurone :: get_buffer()
+{
+	return buffer;
+}
+
+void Neurone :: add_target(int i)
+{
+	targets.push_back(i);
+}

@@ -6,11 +6,18 @@ using namespace std;
 
 int main()
 {
+	double eta;
+	int t_stop;
+	int g;
+	cout << "Please enter a time for the simulation (steps) : " << endl;
+	cin >> t_stop;
+	cout << "Please enter a value for eta : " << endl;
+	cin >> eta;
+	cout << "Please enter a value for g : " << endl;
+	cin >> g;
 	
-	cout << "je suis dans main";
-	Network simulation;
-	cout << "merde";
-	simulation.interaction();
+	Network simulation(eta,g);
+	simulation.interaction(t_stop);
 	
 	return 0; 
 	
