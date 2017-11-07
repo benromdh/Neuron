@@ -87,32 +87,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Neurone Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="Neuron_8hpp_source.html">Neuron.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3eab5c3fa0164913da16e1e354849ea7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeurone.html#a3eab5c3fa0164913da16e1e354849ea7">Neurone</a> (double j)</td></tr>
 <tr class="separator:a3eab5c3fa0164913da16e1e354849ea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91f96fb64597e912121a9b2c5073a48b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeurone.html#a91f96fb64597e912121a9b2c5073a48b">update</a> (int t)</td></tr>
-<tr class="separator:a91f96fb64597e912121a9b2c5073a48b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab49a574132de33bba33faf645957d53c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab49a574132de33bba33faf645957d53c"></a>
-std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>get_spk_time</b> ()</td></tr>
-<tr class="separator:ab49a574132de33bba33faf645957d53c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addbeb2fe298cf13c7b1e8bc0aba53ce4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeurone.html#addbeb2fe298cf13c7b1e8bc0aba53ce4">update</a> (int t, int p)</td></tr>
+<tr class="separator:addbeb2fe298cf13c7b1e8bc0aba53ce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed76b3fbab95c21e6b117b6b845a6379"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeurone.html#aed76b3fbab95c21e6b117b6b845a6379">update_Test</a> (int T, double I)</td></tr>
+<tr class="separator:aed76b3fbab95c21e6b117b6b845a6379"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61ced8282c8b2ebca2c2a04aee895098"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeurone.html#a61ced8282c8b2ebca2c2a04aee895098">is_refractory</a> (int t)</td></tr>
+<tr class="separator:a61ced8282c8b2ebca2c2a04aee895098"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a261fa4e7a44a4b4b3d1ec619189614cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeurone.html#a261fa4e7a44a4b4b3d1ec619189614cd">receive</a> (int t, double J_voisin)</td></tr>
+<tr class="separator:a261fa4e7a44a4b4b3d1ec619189614cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b6e73b4937fed000c5853c1c0e9bfd0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeurone.html#a6b6e73b4937fed000c5853c1c0e9bfd0">add_target</a> (int i)</td></tr>
+<tr class="separator:a6b6e73b4937fed000c5853c1c0e9bfd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc9fdbb5892f8dfee10d7dd06859278e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc9fdbb5892f8dfee10d7dd06859278e"></a>
+std::list&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>get_spk_time</b> ()</td></tr>
+<tr class="separator:acc9fdbb5892f8dfee10d7dd06859278e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a119a9b1cd5a1bae9bac565e3d61cbadb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a119a9b1cd5a1bae9bac565e3d61cbadb"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>get_potential</b> ()</td></tr>
 <tr class="separator:a119a9b1cd5a1bae9bac565e3d61cbadb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a261fa4e7a44a4b4b3d1ec619189614cd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a261fa4e7a44a4b4b3d1ec619189614cd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>receive</b> (int t, double J_voisin)</td></tr>
-<tr class="separator:a261fa4e7a44a4b4b3d1ec619189614cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d6cfa1a764a9fae24f54bd327503669"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeurone.html#a4d6cfa1a764a9fae24f54bd327503669">get_V</a> ()</td></tr>
+<tr class="memitem:a4d6cfa1a764a9fae24f54bd327503669"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d6cfa1a764a9fae24f54bd327503669"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>get_V</b> ()</td></tr>
 <tr class="separator:a4d6cfa1a764a9fae24f54bd327503669"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe296dabc892cce87fe27d61045192d5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abe296dabc892cce87fe27d61045192d5"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>get_spikes</b> ()</td></tr>
+<tr class="separator:abe296dabc892cce87fe27d61045192d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0571ccbb1a1f26ffcb6bf50091520544"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0571ccbb1a1f26ffcb6bf50091520544"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><b>get_J</b> ()</td></tr>
 <tr class="separator:a0571ccbb1a1f26ffcb6bf50091520544"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4096808a1819a5dc01be850a89d0aae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af4096808a1819a5dc01be850a89d0aae"></a>
 std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>get_targets</b> ()</td></tr>
 <tr class="separator:af4096808a1819a5dc01be850a89d0aae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea13a07351b8c1bbc333b2df6247c1f0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aea13a07351b8c1bbc333b2df6247c1f0"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>get_buffer</b> ()</td></tr>
+<tr class="separator:aea13a07351b8c1bbc333b2df6247c1f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class that simulate 1 Neuron. A neuron is mainly caracterized by it's membrane potential and the number of "spikes" it makes during it's lifetime : indeed, the potential membrane is incremented at each step until it reaches a certain limit value, or threshold : then the potential membrane is set to 0 back again and the spike and the time it occured are recorded. As we'll simulate a network of neurons, each neuron has it's own targets, that will receive a certain amount of imput Jext or Jin from the "firing neuron" after a certain delay, depending on the nature of the neuron : This one can be either excitatory or inhibitory. The buffer object is a vector that will make sure that the neuron receives the imput received arrives after a certain delay.</p>
+<p>For the time of the simulation(ms), we'll be mainly working with steps(t) : a step of time is equal to a time interval(unit time) of 0.1 ms. Thus the global time(T) is obtained with the relation : T = t*h when needed. The membrane potential and so J, are recorded in (mV). </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a3eab5c3fa0164913da16e1e354849ea7"></a>
 <div class="memitem">
 <div class="memproto">
@@ -126,34 +143,47 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>g
         </tr>
       </table>
 </div><div class="memdoc">
-<p>le rate de reception du background noise</p>
-<p>on set la taille du buffer à d+1 (en pas de temps) afin d'avoir un tableau circulaire </p>
+<p>constant of the membrane potential</p>
+<p>A constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">j</td><td>wich will caracterize the nature of the neuron : either J_ext thus creating an excitatory neuron, or J_inh thus creating an inhibitory one. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a4d6cfa1a764a9fae24f54bd327503669"></a>
+<a class="anchor" id="a6b6e73b4937fed000c5853c1c0e9bfd0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double Neurone::get_V </td>
+          <td class="memname">void Neurone::add_target </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>gere l'affectation de J au neurone concerné </p>
+<p>A method that enable to add targets(the number of that target) to some neuron, so it can fire to them. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>the number of the target neuron. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a class="anchor" id="a91f96fb64597e912121a9b2c5073a48b"></a>
+<a class="anchor" id="a61ced8282c8b2ebca2c2a04aee895098"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool Neurone::update </td>
+          <td class="memname">bool Neurone::is_refractory </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>t</em></td><td>)</td>
@@ -161,7 +191,117 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>g
         </tr>
       </table>
 </div><div class="memdoc">
-<p>valeur recu du neurone et qui doit etre ajoutée à V au temps t+d </p>
+<p>Test if the refractory period of the neuron is not passed yet. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>current time of simulation. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if neuron is refractory. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a261fa4e7a44a4b4b3d1ec619189614cd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Neurone::receive </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>J_voisin</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A method that will insert the J value of the firing neuron into the buffer of it's target at the current time(t) + d. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>the actual time (steps !!). </td></tr>
+    <tr><td class="paramname">J_voisin</td><td>the value of the firing imput J (either J_ext or J_inh). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="addbeb2fe298cf13c7b1e8bc0aba53ce4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Neurone::update </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A normal function that will update the neuron over time, returning true if this one spikes, false if not. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>an integer argument (the actual time in steps). </td></tr>
+    <tr><td class="paramname">p</td><td>poisson generator. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if spike. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aed76b3fbab95c21e6b117b6b845a6379"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Neurone::update_Test </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>T</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>I</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A version of update to run the tets !!. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td>actual time step. </td></tr>
+    <tr><td class="paramname">I</td><td>the current given. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -172,7 +312,7 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>g
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 3 2017 21:03:12 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 7 2017 19:08:56 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -1,12 +1,79 @@
 \hypertarget{classNetwork}{\section{Network Class Reference}
 \label{classNetwork}\index{Network@{Network}}
 }
+
+
+{\ttfamily \#include $<$Network.\-hpp$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classNetwork_a4d752c12eae960a3d68d5ca2da10c64d}{void {\bfseries interaction} ()}\label{classNetwork_a4d752c12eae960a3d68d5ca2da10c64d}
-
+\hyperlink{classNetwork_a2316eb368da9bc4d33701de5617e7f0b}{Network} (double eta, double g)
+\item 
+void \hyperlink{classNetwork_a80a0df9ab1daa646388fe0f1457e964c}{interaction} (int t\-\_\-stop)
+\item 
+std\-::vector$<$ int $>$ \hyperlink{classNetwork_ac9d756463498db8a93c8ca23855029e6}{targets\-\_\-of} (int i)
+\item 
+\hyperlink{classNetwork_a7a4e19cdb4bf0c7ecf82baa643831492}{$\sim$\-Network} ()
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A \hyperlink{classNetwork}{Network} class. In this class, we create a network of several neurons using pointers. Each of the neurons has it's own targets, to wich it can fires an excitatory (J\-\_\-ext) imput or inhibitory one (J\-\_\-in), thus increasing or decreasing their membrane potential. Also, each neuron has 1250 imputs that came from C\-\_\-ext = 1000 excitatory neurons, and C\-\_\-\-I = 250 inhibitory ones, those are chosen randomly(thus one neuron can be selected to target the same neuron twice). Here, for a given time of simulation given by the user, the class will run the simulation and update each neuron for every time step. When one spikes, then the method interaction navigate through it's targets and give the J of the spiking neuron to be received after a delay by each of the targets. All this will enable to generate a plot representing for each step of time,all the spiking neurons,that were recorded for each time, then drawing a plot using jupiter. The 3 graphs basically differ by their g value, g equal to J\-\_\-in/\-J\-\_\-ext, wich defines the inhibition value (J\-\_\-ext constant), and by the value of eta, that enters into the calculation of the rate of the background noise firing, that is poison distributed. The network is composed of N\-E excitatory neurons(\-J\-\_\-ext) and N\-I inhibitory(\-J\-\_\-in) 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classNetwork_a2316eb368da9bc4d33701de5617e7f0b}{\index{Network@{Network}!Network@{Network}}
+\index{Network@{Network}!Network@{Network}}
+\subsubsection[{Network}]{\setlength{\rightskip}{0pt plus 5cm}Network\-::\-Network (
+\begin{DoxyParamCaption}
+\item[{double}]{eta, }
+\item[{double}]{g}
+\end{DoxyParamCaption}
+)}}\label{classNetwork_a2316eb368da9bc4d33701de5617e7f0b}
+A constructor. 
+\begin{DoxyParams}{Parameters}
+{\em eta} & wich will determine the rate of V\-\_\-ext. \\
+\hline
+{\em g} & with g = J\-\_\-in/\-J\-\_\-ext, J\-\_\-ext constant, will determine J\-\_\-in. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classNetwork_a7a4e19cdb4bf0c7ecf82baa643831492}{\index{Network@{Network}!$\sim$\-Network@{$\sim$\-Network}}
+\index{$\sim$\-Network@{$\sim$\-Network}!Network@{Network}}
+\subsubsection[{$\sim$\-Network}]{\setlength{\rightskip}{0pt plus 5cm}Network\-::$\sim$\-Network (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classNetwork_a7a4e19cdb4bf0c7ecf82baa643831492}
+A destructor. In charge of giving back the memory and clearing the table. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classNetwork_a80a0df9ab1daa646388fe0f1457e964c}{\index{Network@{Network}!interaction@{interaction}}
+\index{interaction@{interaction}!Network@{Network}}
+\subsubsection[{interaction}]{\setlength{\rightskip}{0pt plus 5cm}void Network\-::interaction (
+\begin{DoxyParamCaption}
+\item[{int}]{t\-\_\-stop}
+\end{DoxyParamCaption}
+)}}\label{classNetwork_a80a0df9ab1daa646388fe0f1457e964c}
+A function taking time as an argument and in charge of running the simulation. 
+\begin{DoxyParams}{Parameters}
+{\em t\-\_\-stop} & integer value, define the time of the simulation. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classNetwork_ac9d756463498db8a93c8ca23855029e6}{\index{Network@{Network}!targets\-\_\-of@{targets\-\_\-of}}
+\index{targets\-\_\-of@{targets\-\_\-of}!Network@{Network}}
+\subsubsection[{targets\-\_\-of}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ int $>$ Network\-::targets\-\_\-of (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}}\label{classNetwork_ac9d756463498db8a93c8ca23855029e6}
+A function to select a neuron i in the network and give it's targets. 
+\begin{DoxyParams}{Parameters}
+{\em i} & reference to a neuron in the network. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the vector of targets generated for that neuron. 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

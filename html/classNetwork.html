@@ -87,13 +87,121 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Network Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="Network_8hpp_source.html">Network.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4d752c12eae960a3d68d5ca2da10c64d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d752c12eae960a3d68d5ca2da10c64d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>interaction</b> ()</td></tr>
-<tr class="separator:a4d752c12eae960a3d68d5ca2da10c64d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2316eb368da9bc4d33701de5617e7f0b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork.html#a2316eb368da9bc4d33701de5617e7f0b">Network</a> (double eta, double g)</td></tr>
+<tr class="separator:a2316eb368da9bc4d33701de5617e7f0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80a0df9ab1daa646388fe0f1457e964c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork.html#a80a0df9ab1daa646388fe0f1457e964c">interaction</a> (int t_stop)</td></tr>
+<tr class="separator:a80a0df9ab1daa646388fe0f1457e964c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9d756463498db8a93c8ca23855029e6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork.html#ac9d756463498db8a93c8ca23855029e6">targets_of</a> (int i)</td></tr>
+<tr class="separator:ac9d756463498db8a93c8ca23855029e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a4e19cdb4bf0c7ecf82baa643831492"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork.html#a7a4e19cdb4bf0c7ecf82baa643831492">~Network</a> ()</td></tr>
+<tr class="separator:a7a4e19cdb4bf0c7ecf82baa643831492"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A <a class="el" href="classNetwork.html">Network</a> class. In this class, we create a network of several neurons using pointers. Each of the neurons has it's own targets, to wich it can fires an excitatory (J_ext) imput or inhibitory one (J_in), thus increasing or decreasing their membrane potential. Also, each neuron has 1250 imputs that came from C_ext = 1000 excitatory neurons, and C_I = 250 inhibitory ones, those are chosen randomly(thus one neuron can be selected to target the same neuron twice). Here, for a given time of simulation given by the user, the class will run the simulation and update each neuron for every time step. When one spikes, then the method interaction navigate through it's targets and give the J of the spiking neuron to be received after a delay by each of the targets. All this will enable to generate a plot representing for each step of time,all the spiking neurons,that were recorded for each time, then drawing a plot using jupiter. The 3 graphs basically differ by their g value, g equal to J_in/J_ext, wich defines the inhibition value (J_ext constant), and by the value of eta, that enters into the calculation of the rate of the background noise firing, that is poison distributed. The network is composed of NE excitatory neurons(J_ext) and NI inhibitory(J_in) </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a2316eb368da9bc4d33701de5617e7f0b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Network::Network </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>eta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>g</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eta</td><td>wich will determine the rate of V_ext. </td></tr>
+    <tr><td class="paramname">g</td><td>with g = J_in/J_ext, J_ext constant, will determine J_in. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a7a4e19cdb4bf0c7ecf82baa643831492"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Network::~Network </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A destructor. In charge of giving back the memory and clearing the table. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a80a0df9ab1daa646388fe0f1457e964c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Network::interaction </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>t_stop</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A function taking time as an argument and in charge of running the simulation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t_stop</td><td>integer value, define the time of the simulation. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ac9d756463498db8a93c8ca23855029e6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; int &gt; Network::targets_of </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A function to select a neuron i in the network and give it's targets. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>reference to a neuron in the network. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the vector of targets generated for that neuron. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="Network_8hpp_source.html">Network.hpp</a></li>
 <li>Network.cpp</li>
@@ -101,7 +209,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>interaction</b> ()</t
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 3 2017 21:03:12 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 7 2017 19:08:56 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

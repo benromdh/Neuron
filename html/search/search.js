@@ -7,9 +7,9 @@
 
 var indexSectionsWithContent =
 {
-  0: "gnu",
+  0: "ainrtu~",
   1: "n",
-  2: "gnu"
+  2: "ainrtu~"
 };
 
 var indexSectionNames =

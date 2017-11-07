@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['network',['Network',['../classNetwork.html',1,'']]],
-  ['neurone',['Neurone',['../classNeurone.html',1,'Neurone'],['../classNeurone.html#a3eab5c3fa0164913da16e1e354849ea7',1,'Neurone::Neurone()']]]
+  ['interaction',['interaction',['../classNetwork.html#a80a0df9ab1daa646388fe0f1457e964c',1,'Network']]],
+  ['is_5frefractory',['is_refractory',['../classNeurone.html#a61ced8282c8b2ebca2c2a04aee895098',1,'Neurone']]]
 ];

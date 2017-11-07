@@ -1,31 +1,52 @@
 \hypertarget{classNeurone}{\section{Neurone Class Reference}
 \label{classNeurone}\index{Neurone@{Neurone}}
 }
+
+
+{\ttfamily \#include $<$Neuron.\-hpp$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classNeurone_a3eab5c3fa0164913da16e1e354849ea7}{Neurone} (double j)
 \item 
-bool \hyperlink{classNeurone_a91f96fb64597e912121a9b2c5073a48b}{update} (int t)
+bool \hyperlink{classNeurone_addbeb2fe298cf13c7b1e8bc0aba53ce4}{update} (int t, int p)
 \item 
-\hypertarget{classNeurone_ab49a574132de33bba33faf645957d53c}{std\-::vector$<$ double $>$ {\bfseries get\-\_\-spk\-\_\-time} ()}\label{classNeurone_ab49a574132de33bba33faf645957d53c}
+bool \hyperlink{classNeurone_aed76b3fbab95c21e6b117b6b845a6379}{update\-\_\-\-Test} (int T, double I)
+\item 
+bool \hyperlink{classNeurone_a61ced8282c8b2ebca2c2a04aee895098}{is\-\_\-refractory} (int t)
+\item 
+void \hyperlink{classNeurone_a261fa4e7a44a4b4b3d1ec619189614cd}{receive} (int t, double J\-\_\-voisin)
+\item 
+void \hyperlink{classNeurone_a6b6e73b4937fed000c5853c1c0e9bfd0}{add\-\_\-target} (int i)
+\item 
+\hypertarget{classNeurone_acc9fdbb5892f8dfee10d7dd06859278e}{std\-::list$<$ double $>$ {\bfseries get\-\_\-spk\-\_\-time} ()}\label{classNeurone_acc9fdbb5892f8dfee10d7dd06859278e}
 
 \item 
 \hypertarget{classNeurone_a119a9b1cd5a1bae9bac565e3d61cbadb}{double {\bfseries get\-\_\-potential} ()}\label{classNeurone_a119a9b1cd5a1bae9bac565e3d61cbadb}
 
 \item 
-\hypertarget{classNeurone_a261fa4e7a44a4b4b3d1ec619189614cd}{void {\bfseries receive} (int t, double J\-\_\-voisin)}\label{classNeurone_a261fa4e7a44a4b4b3d1ec619189614cd}
+\hypertarget{classNeurone_a4d6cfa1a764a9fae24f54bd327503669}{double {\bfseries get\-\_\-\-V} ()}\label{classNeurone_a4d6cfa1a764a9fae24f54bd327503669}
 
 \item 
-double \hyperlink{classNeurone_a4d6cfa1a764a9fae24f54bd327503669}{get\-\_\-\-V} ()
+\hypertarget{classNeurone_abe296dabc892cce87fe27d61045192d5}{int {\bfseries get\-\_\-spikes} ()}\label{classNeurone_abe296dabc892cce87fe27d61045192d5}
+
 \item 
 \hypertarget{classNeurone_a0571ccbb1a1f26ffcb6bf50091520544}{double {\bfseries get\-\_\-\-J} ()}\label{classNeurone_a0571ccbb1a1f26ffcb6bf50091520544}
 
 \item 
 \hypertarget{classNeurone_af4096808a1819a5dc01be850a89d0aae}{std\-::vector$<$ int $>$ {\bfseries get\-\_\-targets} ()}\label{classNeurone_af4096808a1819a5dc01be850a89d0aae}
 
+\item 
+\hypertarget{classNeurone_aea13a07351b8c1bbc333b2df6247c1f0}{std\-::vector$<$ double $>$ {\bfseries get\-\_\-buffer} ()}\label{classNeurone_aea13a07351b8c1bbc333b2df6247c1f0}
+
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+A class that simulate 1 Neuron. A neuron is mainly caracterized by it's membrane potential and the number of \char`\"{}spikes\char`\"{} it makes during it's lifetime \-: indeed, the potential membrane is incremented at each step until it reaches a certain limit value, or threshold \-: then the potential membrane is set to 0 back again and the spike and the time it occured are recorded. As we'll simulate a network of neurons, each neuron has it's own targets, that will receive a certain amount of imput Jext or Jin from the \char`\"{}firing neuron\char`\"{} after a certain delay, depending on the nature of the neuron \-: This one can be either excitatory or inhibitory. The buffer object is a vector that will make sure that the neuron receives the imput received arrives after a certain delay.
+
+For the time of the simulation(ms), we'll be mainly working with steps(t) \-: a step of time is equal to a time interval(unit time) of 0.\-1 ms. Thus the global time(\-T) is obtained with the relation \-: T = t$\ast$h when needed. The membrane potential and so J, are recorded in (m\-V). 
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{classNeurone_a3eab5c3fa0164913da16e1e354849ea7}{\index{Neurone@{Neurone}!Neurone@{Neurone}}
@@ -35,26 +56,92 @@ double \hyperlink{classNeurone_a4d6cfa1a764a9fae24f54bd327503669}{get\-\_\-\-V} 
 \item[{double}]{j}
 \end{DoxyParamCaption}
 )}}\label{classNeurone_a3eab5c3fa0164913da16e1e354849ea7}
-le rate de reception du background noise
+constant of the membrane potential
 
-on set la taille du buffer à d+1 (en pas de temps) afin d'avoir un tableau circulaire 
+A constructor. 
+\begin{DoxyParams}{Parameters}
+{\em j} & wich will caracterize the nature of the neuron \-: either J\-\_\-ext thus creating an excitatory neuron, or J\-\_\-inh thus creating an inhibitory one. \\
+\hline
+\end{DoxyParams}
+
 
 \subsection{Member Function Documentation}
-\hypertarget{classNeurone_a4d6cfa1a764a9fae24f54bd327503669}{\index{Neurone@{Neurone}!get\-\_\-\-V@{get\-\_\-\-V}}
-\index{get\-\_\-\-V@{get\-\_\-\-V}!Neurone@{Neurone}}
-\subsubsection[{get\-\_\-\-V}]{\setlength{\rightskip}{0pt plus 5cm}double Neurone\-::get\-\_\-\-V (
+\hypertarget{classNeurone_a6b6e73b4937fed000c5853c1c0e9bfd0}{\index{Neurone@{Neurone}!add\-\_\-target@{add\-\_\-target}}
+\index{add\-\_\-target@{add\-\_\-target}!Neurone@{Neurone}}
+\subsubsection[{add\-\_\-target}]{\setlength{\rightskip}{0pt plus 5cm}void Neurone\-::add\-\_\-target (
 \begin{DoxyParamCaption}
-{}
+\item[{int}]{i}
 \end{DoxyParamCaption}
-)}}\label{classNeurone_a4d6cfa1a764a9fae24f54bd327503669}
-gere l'affectation de J au neurone concerné \hypertarget{classNeurone_a91f96fb64597e912121a9b2c5073a48b}{\index{Neurone@{Neurone}!update@{update}}
-\index{update@{update}!Neurone@{Neurone}}
-\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}bool Neurone\-::update (
+)}}\label{classNeurone_a6b6e73b4937fed000c5853c1c0e9bfd0}
+A method that enable to add targets(the number of that target) to some neuron, so it can fire to them. 
+\begin{DoxyParams}{Parameters}
+{\em i} & the number of the target neuron. \\
+\hline
+\end{DoxyParams}
+\hypertarget{classNeurone_a61ced8282c8b2ebca2c2a04aee895098}{\index{Neurone@{Neurone}!is\-\_\-refractory@{is\-\_\-refractory}}
+\index{is\-\_\-refractory@{is\-\_\-refractory}!Neurone@{Neurone}}
+\subsubsection[{is\-\_\-refractory}]{\setlength{\rightskip}{0pt plus 5cm}bool Neurone\-::is\-\_\-refractory (
 \begin{DoxyParamCaption}
 \item[{int}]{t}
 \end{DoxyParamCaption}
-)}}\label{classNeurone_a91f96fb64597e912121a9b2c5073a48b}
-valeur recu du neurone et qui doit etre ajoutée à V au temps t+d 
+)}}\label{classNeurone_a61ced8282c8b2ebca2c2a04aee895098}
+Test if the refractory period of the neuron is not passed yet. 
+\begin{DoxyParams}{Parameters}
+{\em t} & current time of simulation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if neuron is refractory. 
+\end{DoxyReturn}
+\hypertarget{classNeurone_a261fa4e7a44a4b4b3d1ec619189614cd}{\index{Neurone@{Neurone}!receive@{receive}}
+\index{receive@{receive}!Neurone@{Neurone}}
+\subsubsection[{receive}]{\setlength{\rightskip}{0pt plus 5cm}void Neurone\-::receive (
+\begin{DoxyParamCaption}
+\item[{int}]{t, }
+\item[{double}]{J\-\_\-voisin}
+\end{DoxyParamCaption}
+)}}\label{classNeurone_a261fa4e7a44a4b4b3d1ec619189614cd}
+A method that will insert the J value of the firing neuron into the buffer of it's target at the current time(t) + d. 
+\begin{DoxyParams}{Parameters}
+{\em t} & the actual time (steps !!). \\
+\hline
+{\em J\-\_\-voisin} & the value of the firing imput J (either J\-\_\-ext or J\-\_\-inh). \\
+\hline
+\end{DoxyParams}
+\hypertarget{classNeurone_addbeb2fe298cf13c7b1e8bc0aba53ce4}{\index{Neurone@{Neurone}!update@{update}}
+\index{update@{update}!Neurone@{Neurone}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}bool Neurone\-::update (
+\begin{DoxyParamCaption}
+\item[{int}]{t, }
+\item[{int}]{p}
+\end{DoxyParamCaption}
+)}}\label{classNeurone_addbeb2fe298cf13c7b1e8bc0aba53ce4}
+A normal function that will update the neuron over time, returning true if this one spikes, false if not. 
+\begin{DoxyParams}{Parameters}
+{\em t} & an integer argument (the actual time in steps). \\
+\hline
+{\em p} & poisson generator. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if spike. 
+\end{DoxyReturn}
+\hypertarget{classNeurone_aed76b3fbab95c21e6b117b6b845a6379}{\index{Neurone@{Neurone}!update\-\_\-\-Test@{update\-\_\-\-Test}}
+\index{update\-\_\-\-Test@{update\-\_\-\-Test}!Neurone@{Neurone}}
+\subsubsection[{update\-\_\-\-Test}]{\setlength{\rightskip}{0pt plus 5cm}bool Neurone\-::update\-\_\-\-Test (
+\begin{DoxyParamCaption}
+\item[{int}]{T, }
+\item[{double}]{I}
+\end{DoxyParamCaption}
+)}}\label{classNeurone_aed76b3fbab95c21e6b117b6b845a6379}
+A version of update to run the tets !!. 
+\begin{DoxyParams}{Parameters}
+{\em T} & actual time step. \\
+\hline
+{\em I} & the current given. \\
+\hline
+\end{DoxyParams}
+
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
