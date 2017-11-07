@@ -16,7 +16,7 @@ int main()
 	cout << "Please enter a value for g : " << endl;
 	cin >> g;
 	
-	Network simulation(eta,g);
+	Network simulation(eta,g);		//We create a network
 	simulation.interaction(t_stop);
 	
 	return 0; 
