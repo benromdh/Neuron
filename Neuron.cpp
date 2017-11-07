@@ -12,7 +12,7 @@ Neurone :: Neurone(double j)
  * 1.The first component is recalculating V using the past value of the past time.
  * 2.This component increases V only if the delay after receiving J_in or J_ext from a firing neuron is passed. Then t = t+d (taking the module because of the "ring buffer"),
  * and we can extratc the written value of J. Otherwise the expression is equal to 0 and V doesn't change for that time.
- * 3.Finally, we're taking the background noise that is excitatory only (J_ext) and poisson distributed(p).
+ * 3.Finally, we're taking the background noise (imput from external parts of the brain) that is excitatory only (J_ext) and poisson distributed(p).
  *********************************************************************************************************************************************************************************/
  
 bool Neurone :: update(int t,int p)
@@ -20,14 +20,14 @@ bool Neurone :: update(int t,int p)
 
 	bool spiked = false;
 	 
-	if (!spk_time.empty() and is_refractory(t))				// check if neuron is refractory 
+	if (!spk_time.empty() and is_refractory(t))	// check if neuron is refractory 
 	{																		
 		V = 0.0;
 	}
 		
 	else
 	{
-		V = c1*V + buffer[t % (d+1)] + p*J_ext; 	// we recalculate the membrane potential		
+		V = c1*V + buffer[t % (d+1)] + p*J_ext; // we recalculate the membrane potential		
 											
 		if(V > V_thr)				// if spike 																
 		{
@@ -50,7 +50,7 @@ bool Neurone :: update_Test(int T,double I)  //used during the tests
 	int t(0);
 	bool spiked = false;
 	 
-	while(t < T)				 //updates T times for 1 neuron
+	while(t < T)				//updates T times for 1 neuron
 	{	
 		if (!spk_time.empty() and is_refractory(t))				
 		{																		

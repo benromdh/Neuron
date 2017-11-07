@@ -13,7 +13,7 @@ using namespace std;
  * **********************************************************************************************************************************************/
 Network :: Network(double eta,double g)
 {		
-	static random_device rd; 								//Random device and generator for the random uniformed distribution
+	static random_device rd; 		//Random device and generator for the random uniformed distribution
 	static mt19937 gen(rd());
 	static uniform_int_distribution<> dis(0,9999);			
 	static uniform_int_distribution<> dis2(10000,12499);
@@ -21,12 +21,12 @@ Network :: Network(double eta,double g)
 	V_ext = eta*C_ext*V_thr/(C_ext*J_ext*tau);
 	J_in = -g*J_ext;
 	
-	for(size_t i(0); i < NE; ++i)					//creating the first NE neurons that are excitatory
+	for(size_t i(0); i < NE; ++i)		//creating the first NE neurons that are excitatory
 	{	
 		Neurones.push_back(new Neurone(J_ext));
 	}
 
-    for(size_t i(0); i < NI; ++i)					//The remain NI are inhibitory neurons
+    for(size_t i(0); i < NI; ++i)		//The remain NI are inhibitory neurons
     {	
 		Neurones.push_back(new Neurone(J_in));
 	}
@@ -35,10 +35,10 @@ Network :: Network(double eta,double g)
 	{
 		for(int i(0); i < 1000; ++i)
 		{
-			Neurones[dis(gen)] -> add_target(n);   //we generate our random excitatory connections
+			Neurones[dis(gen)] -> add_target(n);  //we generate our random excitatory connections
 		}										
 		
-		for(int j(0); j < 250; ++j) 		  		//we generate our random inhibitory ones
+		for(int j(0); j < 250; ++j) 		  	//we generate our random inhibitory ones
 		{
 			Neurones[dis2(gen)] -> add_target(n);
 		}
@@ -88,9 +88,9 @@ Network :: ~Network()
 	for(auto& neurone : Neurones)
 	{
 		delete neurone;
-		neurone = nullptr; 		//delete the neuron
+		neurone = nullptr; 	//delete the neuron
 	}
-	Neurones.clear();			// clear the table
+	Neurones.clear();		// clear the table
 }
 	
 	

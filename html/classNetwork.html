@@ -102,7 +102,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7a4e19cdb4bf0c7ecf82baa643831492"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A <a class="el" href="classNetwork.html">Network</a> class. In this class, we create a network of several neurons using pointers. Each of the neurons has it's own targets, to wich it can fires an excitatory (J_ext) imput or inhibitory one (J_in), thus increasing or decreasing their membrane potential. Also, each neuron has 1250 imputs that came from C_ext = 1000 excitatory neurons, and C_I = 250 inhibitory ones, those are chosen randomly(thus one neuron can be selected to target the same neuron twice). Here, for a given time of simulation given by the user, the class will run the simulation and update each neuron for every time step. When one spikes, then the method interaction navigate through it's targets and give the J of the spiking neuron to be received after a delay by each of the targets. All this will enable to generate a plot representing for each step of time,all the spiking neurons,that were recorded for each time, then drawing a plot using jupiter. The 3 graphs basically differ by their g value, g equal to J_in/J_ext, wich defines the inhibition value (J_ext constant), and by the value of eta, that enters into the calculation of the rate of the background noise firing, that is poison distributed. The network is composed of NE excitatory neurons(J_ext) and NI inhibitory(J_in) </p>
+<div class="textblock"><p>A <a class="el" href="classNetwork.html">Network</a> class. In this class, we create a network of several neurons using pointers. Each of the neurons has it's own targets, to wich it can fires an excitatory (J_ext) imput or inhibitory one (J_in), thus increasing or decreasing their membrane potential. Also, each neuron has C_tot = 1250 imputs that came from C_ext = 1000 excitatory neurons, and C_I = 250 inhibitory ones; those are chosen randomly(thus one neuron can be selected to target the same neuron twice). Also each one receives external imput from the brain with a rate V_ext. Here, for a given time of simulation given by the user, the class will run the simulation and update each neuron for every time step. When one spikes, then the method interaction navigate through it's targets and give the J of the spiking neuron to be received after a delay by each of the targets. All this will enable to generate a plot representing for each step of time,all the spiking neurons. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a2316eb368da9bc4d33701de5617e7f0b"></a>
 <div class="memitem">
@@ -209,7 +209,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 7 2017 19:08:56 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 7 2017 22:21:36 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

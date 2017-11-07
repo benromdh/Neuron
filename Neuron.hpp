@@ -8,12 +8,12 @@
 
 /************************************************************************************************************************************************//**
  * A class that simulate 1 Neuron. 
- * A neuron is mainly caracterized by it's membrane potential and the number of "spikes"
- * it makes during it's lifetime : indeed, the potential membrane is incremented at each step until it reaches 
+ * A neuron is mainly caracterized by it's membrane potential, the number of "spikes"
+ * it makes during it's lifetime and whether it is excitatory or inhibitory : indeed, the potential membrane is incremented at each step until it reaches 
  * a certain limit value, or threshold : then the potential membrane is set to 0 back again and the spike and 
  * the time it occured are recorded. As we'll simulate a network of neurons, each neuron has it's own targets,
- * that will receive a certain amount of imput Jext or Jin from the "firing neuron" after a certain delay, depending on the nature of the neuron :
- * This one can be either excitatory or inhibitory. The buffer object is a vector that will make sure that the neuron receives
+ * that will receive a certain amount of imput Jext or Jin from another "firing neuron" after a certain delay, depending on the nature of the neuron.
+ * The buffer object is a vector that will make sure that the neuron receives
  * the imput received arrives after a certain delay.
  * 
  * For the time of the simulation(ms), we'll be mainly working with steps(t) : a step of time is equal to a time interval(unit time) of 0.1 ms.
