@@ -8,13 +8,23 @@ either excitatory or inhibitory.(See the Neurone class for more details).
 Basically, what we're doing is that we set up a network of neurons, establishing connexions between them.
 Indeed, each neuron has it's own targets with whom it can interact, by firing to them (see class network),
 but receives also imput from the external parts of the brain (background noise poisson distributed).
-
 In the main, for a given time of simulation given by the user, the class will run the simulation and update 
 each neuron for every time step. When one spikes,it either excitate or inhibitate it's targets depending on it's nature.
 
- All this will enable to generate 4 plots (A,B,C and D) representing for each step of time,all the spiking neurons.
- The plots will differ by the values of "eta" that will define the rate at wich the rest of the brain fires (V_ext) it's excitatory signal
- to each connected neuron, and the value of "g" that define the value of inhibition "J_in" ("J_ext" constant).
+
+HOW TO EXECUTE THE PROGRAM :
+I uploaded a "Cmake_lists", wich will allow you to run the program using cmake, after creating a make file inside 
+a build repository. Find also a "Doxyfile.in"to generate the documentation and a document containing the tests "Neuron_unittest.cpp"
+
+1/To run the program : go to the position of your make file and write "make",then run the executable "./Neuron".
+2/To generate the documentation : write "make doc" from the position of your make file. It should thus create an html 
+documenting your class
+3/To run the tests : make, then write "./Neuron_unittest". They should all pass.
+
+
+ABOUT THE PROJECT :
+All this will enable to generate 4 plots (A,B,C and D) representing for each step of time,all the spiking neurons.
+ The plots will differ by the values of "eta" that will define the rate at wich the rest of the brain fires (V_ext) it's  excitatory signal to each connected neuron, and the value of "g" that define the value of inhibition "J_in" ("J_ext" constant).
  So each of the values :
  -t_stop (time interval of the simulation)
  -eta = V_ext/V_thr
@@ -35,6 +45,7 @@ Otherwise, I also uploaded a python document named "Plots.py" if you wish to gen
 you might want to create using the program.
 For this, just add the name of the document under genfromtxt('doc.txt').
 The code to draw the plots takes 50 neurons from the network (as in Brunel), so I set d[1] < 50.
+
 
 Have fun..
 
