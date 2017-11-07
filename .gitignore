@@ -1,4 +1,5 @@
 build
+gtest
 *.o
 *.gch
 *~
